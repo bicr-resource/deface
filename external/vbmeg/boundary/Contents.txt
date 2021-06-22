@@ -1,0 +1,55 @@
+function	[F, V, xxn] = vb_out_normal(F,V,seedID)
+% ポリゴンモデルの三角面法線の向きを外向きに揃える
+
+function	v = vb_aniso_difuse(v,u,Nloop,c)
+%      異方性拡散緩和による境界面の平滑化
+% v : 平滑化するマスクパターン(白質・頭蓋内)
+% u : v の相補パターン(灰白質・頭蓋)
+% Nloop : 拡散回数
+% c     : 拡散係数
+
+function	[kx,ky,kz,vb] = vb_get_boundary(v,vlevel)
+% マスク境界面の抽出
+%    v       : 3D-ボクセル上のマスクイメージ
+%   vlevel   : 閾値
+%
+%    vb      : 3D-ボクセル上の境界点イメージ
+% [kx,ky,kz] : 境界点座標
+
+function	[V, F, xxn] = vb_surf_smooth(V,F,xx,Para)
+% ポリゴンモデルを外側に膨らませバネ力による平滑化を行う
+% 平滑化バネ力＋外向き力
+
+%  V(n, 1:3)  : 頂点の位置
+%  F(j, 1:3)  : 三角面３頂点のインデックス
+% xx(n, 1:3)  : 頂点の法線方向(nx,ny,nz)
+% xxn(n, 1:3) : 頂点の法線方向(nx,ny,nz)
+
+function	[V, F, xxn] = vb_surf_smooth_data(V,F,xx,vg,Para)
+% ポリゴンモデルをマスクパターンの境界面に膨らませ
+% バネ力による平滑化を行う
+% 平滑化バネ力＋外向き力(内側)／内向き力(外側)
+
+%  V(n, 1:3)  : 頂点の位置
+%  F(j, 1:3)  : 三角面３頂点のインデックス
+% xx(n, 1:3)  : 頂点の法線方向(nx,ny,nz)
+% xxn(n, 1:3) : 頂点の法線方向(nx,ny,nz)
+% vg(NX,NY,NZ): 3D-ボクセル・マスクパターン
+
+% メッシュ平滑化パラメタ
+Para.Nloop = 150;
+Para.Ndisp = 50;
+Para.Nlast = 20;
+
+Para.tangent_rate		  = 0.1;	% 接線方向のバネ係数
+Para.tangent_normal_ratio = 1;		% 法線方向バネ係数/接線方向バネ係数
+Para.normal_subtract	  = 0;		% =1: 法線方向の平均強度 = 0
+Para.mask_ratio 		  = 0.5;	% マスクの内・外向き力係数
+Para.out_force  		  = 0.0;	% マスク無しの時の外向き力係数
+Para.mask_threshold 	  = 0.3;	% マスク境界面を決める閾値
+
+% プロットパラメタ
+Para.cmode	= color_mode;
+Para.vangle = [-103 -64];
+Para.NY 	= 2;
+Para.NY 	= 1;

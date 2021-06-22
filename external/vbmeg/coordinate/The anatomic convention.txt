@@ -1,0 +1,53 @@
+
+The anatomic conventions of the Talairach Atlas are that anatomic right, 
+superior and anterior directions are positive, while left, inferior and 
+posterior directions are negative (Talairach Atlas Landmarks). Talairach 
+Atlas Lanmarks are used to define the registration are as follows: 
+
+1. The Anterior Commissure (AC), defined as the origin of the Talairach 
+  Atlas coordinate system, is assumed to be at location (0, 0, 0). 
+
+2. The Posterior Commissure (PC) is assumed to be at location ( 0, -24, 0 ). 
+
+3. The point where the AC-PC line intersects the posterior extent of the 
+  brain at the AC-PC level. This point is designated as the landmark 
+  "Posterior to the Posterior Commissure" (PPC), and is assumed to be at 
+  location ( 0, -102, 0 ). 
+
+4. The point where the AC-PC line intersects the anterior extent of the 
+  brain at the AC-PC level. This point is designated as the landmark 
+  "Anterior to the Anterior Commissure" (AAC), and is assumed to be at 
+  location ( 0, 68, 0 ). 
+
+5. The point where a "horizontal" line passing through the AC intersects 
+  the left extent of the brain in the coronal plane containing the AC. 
+  This point is designated as the landmark "Left of the Anterior Commissure" 
+  (LAC), and is assumed to be at location ( -62, 0, 0 ). 
+
+6. The point where a "horizontal" line passing through the AC intersects 
+  the right extent of the brain in the coronal plane containing the AC. 
+  This point is designated as the landmark "Right of the Anterior 
+  Commissure" (RAC), and is assumed to be at location ( 62, 0, 0 ). 
+
+7. The point where a "vertical" line passing through the AC intersects the 
+  superior extent of the brain in the coronal plane containing the AC. This 
+  point is designated as the landmark "Superior to the Anterior Commissure" 
+  (SAC), and is assumed to be at location ( 0, 0, 72 ). 
+
+8. The point where a "vertical" line passing through the AC intersects the 
+  inferior extent of the brain (i.e., the inferior extents of the temporal 
+  lobes) in the coronal plane containing the AC. This point is designated 
+  as the landmark "Inferior to the Anterior Commissure" (IAC), and is 
+  assumed to be at location ( 0, 0, -42 ). 
+
+In order to best place the landmarks according to the assumptions used to 
+determine their locations in Talairach Atlas space, it is recommended that 
+you locate and place landmark vertices in specific orthogonal views, as follows: 
+
+  AC, PC: Use sagittal and transverse views 
+
+  SAC, IAC, RAC, LAC: Use coronal view 
+
+  AAC, PPC: Use transverse view 
+
+[END MedX quote]

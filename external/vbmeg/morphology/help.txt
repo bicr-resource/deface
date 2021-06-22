@@ -1,0 +1,7 @@
+function [F, V] = vb_face_extract(imagefile, Radius, step, pmax, Bval)
+% MRI構造画像から顔表面画像の抽出
+
+function	B = morfology_operation(B, Radius, step, plot_mode, zindx, Nfig)
+%-------- モルフォロジー変換 --------
+% Apply morfology operations
+% Dilation/erosion are done consecutively according to Radius

@@ -1,0 +1,29 @@
+function	[trans_mat, marker_mri] = vb_fit_3d_coord(marker, mri)
+% Transform Marker coordinate to MRI coordinate
+% Three point matching (usualy Left/Right ear & Nose are used)
+
+function	[trans_opt] = vb_search_fit_coord(V0,V,F,Nmri,trans_mat)
+% Find optimal transformation to fit MRI face and vivid data
+
+function Xout = vb_rigid_transform(X, para)
+% Apply rigid body transformation to 'X'
+
+function Xout = vb_affine_trans(X, trans_mat)
+% Apply affine transformation to 'X'
+
+function	[ddsum, ddmin ]= vb_distance_min3d(x,y)
+% Average minimum distance from set of points {x} to set of points {y}
+
+function	[Indx ,ddmin] = vb_find_nearest_point(Vold, Vnew, Rmax, Nstep)
+% Find Vold point nearest to Vnew
+% 全領域をスライスに分けて探索するので効率的
+
+function	[yindx, yout, ddmin] = vb_find_min_distance(x,y)
+% Find min distance point in y from x
+% 全点探索
+
+function	[trans_mat, marker_mri] = vb_fit_3d_coord(marker, mri)
+% Transform Marker coordinate to MRI coordinate
+%  by Rigid Body Transformation (Rotation + Translation)
+% Three point matching (usualy Left/Right ear & Nose are used)
+

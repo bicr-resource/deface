@@ -1,0 +1,13 @@
+function	B = vb_opening_3d(B, R1, R2)
+% 孤立点を削除
+%
+% Made by M. Sato 2004-3-28
+%
+% Copyright (C) 2011, ATR All Rights Reserved.
+% License : New BSD License(see VBMEG_LICENSE.txt)
+
+if nargin < 3, R2 = R1; end;
+
+B = vb_erosion_3d( B, R1 );
+B = vb_dilation_3d(B, R2 );
+
